@@ -1,0 +1,46 @@
+TELCO CUSTOMER CHURN ANALYSIS REPORT
+======================================================================
+
+EXECUTIVE SUMMARY
+--------------------------------------------------
+Total Customers Analyzed: 7,043
+Current Churn Rate: 35.5%
+Customers at Risk: 2,501
+Best Model Performance: ROC-AUC = 0.8211
+
+KEY FINDINGS FROM FIRST PRINCIPLES ANALYSIS
+--------------------------------------------------
+1. Contract flexibility is the #1 driver of churn
+2. Critical retention period: First 12 months
+3. Value perception gap drives high-value customer churn
+4. Service bundles create effective retention barriers
+
+BUSINESS IMPACT POTENTIAL
+--------------------------------------------------
+With 7.5% churn reduction:
+- Customers Saved: 187
+- Annual Revenue Protected: $191,858.02
+- Expected ROI: 3x
+
+MODEL PERFORMANCE SUMMARY
+--------------------------------------------------
+
+Logistic Regression:
+  Accuracy: 0.7459
+  ROC-AUC: 0.8211
+  F1-Score: 0.6134
+
+Random Forest:
+  Accuracy: 0.7275
+  ROC-AUC: 0.7986
+  F1-Score: 0.5835
+
+XGBoost:
+  Accuracy: 0.7033
+  ROC-AUC: 0.7779
+  F1-Score: 0.5673
+
+Gradient Boosting:
+  Accuracy: 0.7324
+  ROC-AUC: 0.8147
+  F1-Score: 0.5985
