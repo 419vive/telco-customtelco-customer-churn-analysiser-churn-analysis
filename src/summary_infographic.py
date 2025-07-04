@@ -182,12 +182,12 @@ def create_summary_infographic():
     ax6.text(5, 9.5, 'KEY INSIGHTS', ha='center', fontsize=14, fontweight='bold')
     
     insights = [
-        '🎯 80% of revenue comes from top 2 segments',
-        '💔 Month-to-month contracts = 52.8% churn rate',
-        '💰 High monthly charges correlate with churn',
-        '⏰ New customers (<12 months) = higher risk',
-        '📊 Contract type is the biggest churn predictor',
-        '🎪 VIP customers have lowest churn (10.7%)'
+        '1️⃣ Core Problem: Predict & reduce customer churn',
+        '2️⃣ Known Facts: 7,043 customers • 26.5% churn • labeled history',
+        '3️⃣ Fundamental Drivers: contract type, tenure, charges, service mix',
+        '4️⃣ Simple Model: Random-Forest classifier (Acc 79%, AUC 0.825)',
+        '5️⃣ Controllable Factors: contract incentives, pricing, bundles',
+        '6️⃣ Business Value: protect $1.45 M/yr revenue, ↑ CLTV'
     ]
     
     for i, insight in enumerate(insights):
