@@ -127,16 +127,20 @@ def main():
     print("\n🚀 PHASE 6: DEPLOYMENT & RECOMMENDATIONS")
     print("-" * 40)
     
-    # Save model
-    if not os.path.exists('../models'):
-        os.makedirs('../models')
-    
-    model_path = '../models/telco_churn_model.pkl'
+    from pathlib import Path
+    # Determine project root based on the location of this file
+    project_root = Path(__file__).resolve().parent.parent
+
+    # Ensure the "models" directory exists inside the project root
+    models_dir = project_root / 'models'
+    models_dir.mkdir(parents=True, exist_ok=True)
+
+    # Save model and preprocessor inside the models directory
+    model_path = models_dir / 'telco_churn_model.pkl'
     joblib.dump(rf_model, model_path)
     print(f"✅ Model saved to: {model_path}")
-    
-    # Save preprocessor
-    preprocessor_path = '../models/preprocessor.pkl'
+
+    preprocessor_path = models_dir / 'preprocessor.pkl'
     joblib.dump(preprocessor, preprocessor_path)
     print(f"✅ Preprocessor saved to: {preprocessor_path}")
     
@@ -262,14 +266,15 @@ def create_analysis_visualizations(data, y_test, y_pred, y_pred_proba, feature_i
     
     plt.tight_layout()
     
-    # Save the visualization
-    if not os.path.exists('../results'):
-        os.makedirs('../results')
+    # Use project root to build results directory
+    from pathlib import Path
+    results_dir = Path(__file__).resolve().parent.parent / 'results'
+    results_dir.mkdir(parents=True, exist_ok=True)
     
-    plt.savefig('../results/telco_churn_analysis_dashboard.png', dpi=300, bbox_inches='tight')
+    plt.savefig(results_dir / 'telco_churn_analysis_dashboard.png', dpi=300, bbox_inches='tight')
     plt.show()
     
-    print("✅ Visualizations saved to: ../results/telco_churn_analysis_dashboard.png")
+    print(f"✅ Visualizations saved to: {results_dir / 'telco_churn_analysis_dashboard.png'}")
 
 if __name__ == "__main__":
     main() 

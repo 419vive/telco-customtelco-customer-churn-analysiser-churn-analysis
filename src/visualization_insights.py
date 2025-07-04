@@ -110,6 +110,23 @@ def main():
     axes[1, 1].grid(True, alpha=0.3)
     
     plt.tight_layout()
+
+    # Save dashboard to results directory
+    from pathlib import Path
+    results_dir = Path(__file__).resolve().parent.parent / 'results'
+    results_dir.mkdir(parents=True, exist_ok=True)
+    plt.savefig(results_dir / 'customer_segmentation_dashboard.png', dpi=300, bbox_inches='tight')
+    plt.show()
+
+    # Budget recommendation chart (separate figure)
+    budget_fig, budget_ax = plt.subplots(figsize=(6, 6))
+    budget_data = [50, 30, 20]  # Allocation percentages
+    budget_labels = ['High Value High Risk', 'VIP', 'Low Value']
+    budget_colors = ['red', 'gold', 'lightgray']
+    budget_ax.pie(budget_data, labels=budget_labels, autopct='%1.0f%%', startangle=90, colors=budget_colors)
+    budget_ax.set_title('Retention Budget Recommendation', fontweight='bold')
+    budget_fig.tight_layout()
+    budget_fig.savefig(results_dir / 'budget_recommendation_chart.png', dpi=300, bbox_inches='tight')
     plt.show()
     
     # Print recommendations
